@@ -1,5 +1,5 @@
 package com.vdzon.samples.uselesscontacts;
-
+asdasda
 
 import com.vdzon.samples.uselesscontacts.rest.AuthenticationResource;
 import com.vdzon.samples.uselesscontacts.rest.ContactsResource;
