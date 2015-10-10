@@ -6,7 +6,7 @@
 
     <groupId>contacts</groupId>
     <artifactId>contactsbackend</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.2-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <name>contactdb</name>
@@ -34,7 +34,7 @@
 <distributionManagement>
    <snapshotRepository>
       <id>nexus-snapshots</id>
-      <url>http://172.17.42.1:8081/nexus/content/repositories/snapshots</url>
+      <url>http://192.168.178.26:8081/nexus/content/repositories/snapshots</url>
    </snapshotRepository>
 </distributionManagement>
 
@@ -50,6 +50,26 @@
         </extensions>
 
         <plugins>
+        
+        <plugin>
+	        <groupId>org.codehaus.mojo</groupId>
+	        <artifactId>autoincrement-versions-maven-plugin</artifactId>
+	        <version>2.0-SNAPSHOT</version>
+	        <executions>
+	                <execution>
+	                        <id>update-pom-versions</id>
+	                        <goals>
+	                                <goal>increment</goal>
+	                                <goal>commit</goal>
+	                        </goals>
+	                        <phase>compile</phase>
+	                        <configuration>
+	                                <autoIncrementVersion>true</autoIncrementVersion>
+	                        </configuration>
+	                </execution>
+	        </executions>
+	</plugin>
+        
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -152,4 +172,16 @@
         </dependency>
 
     </dependencies>
+
+<pluginRepositories>
+    <pluginRepository>
+        <id>autoincrement-versions-maven-plugin</id>
+        <name>autoincrement-versions-maven-plugin</name>
+        <url>http://autoincrement-versions-maven-plugin.googlecode.com/svn/repo</url>
+        <snapshots>
+            <enabled>true</enabled>
+        </snapshots>
+    </pluginRepository>
+</pluginRepositories>
+
 </project>
